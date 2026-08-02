@@ -1,0 +1,7 @@
+state.json
+state.json.tmp
+__pycache__/
+*.pyc
+.venv/
+
+docs/*.pdf
