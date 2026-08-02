@@ -3,6 +3,18 @@
 An MCP server that lets an AI assistant drive a **RIGOL DG800 Pro / DG900 Pro**
 function / arbitrary waveform generator over **LAN (raw SCPI on TCP 5555)**.
 
+> ### This is a signal source, not an oscilloscope
+>
+> The DG800/DG900 family **generates** waveforms. It cannot measure a signal, capture it,
+> or display it. If you are looking for a way to look at a waveform, this is the wrong
+> instrument and the wrong repository — you want a scope (Rigol's DS/MSO lines).
+>
+> The one measuring feature it does have is a **frequency counter** on a separate input
+> (`dg_counter`), and that only reports frequency / period / duty of a *periodic* signal.
+> It will not tell you anything useful about, say, serial data.
+>
+> The `DG` prefix is easy to mistake for a scope model. It is not one.
+
 ```
 *IDN?  ->  RIGOL TECHNOLOGIES,DG902 Pro,DG9P281200133,...
 ```
@@ -122,6 +134,18 @@ by USB only. Verified behaviour will be recorded here once it has been run on ha
 
 **RIGOL DG800 Pro / DG900 Pro**(任意波形発生器)を **LAN 経由(SCPI over TCP、5555番)** で
 操作するための MCP サーバーです。
+
+> ### これは信号を「出す」機械です。オシロスコープではありません
+>
+> DG800/DG900 系は**波形を作って出す**機械です。信号を測ることも、取り込むことも、
+> 画面に出すこともできません。**波形を見たいのなら、機種もこのリポジトリも違います**
+> (見るための機械は Rigol なら DS / MSO 系)。
+>
+> 唯一の測る機能は、別の端子に付いている**周波数計**(`dg_counter`)だけです。
+> しかもこれは**繰り返しのある信号**の周波数・周期・デューティしか出しません。
+> 通信のデータのような、繰り返しでない信号を測っても意味のある値は出ません。
+>
+> **`DG` という型名はオシロの型番と取り違えやすい**ので、念のため書いておきます。
 
 ## なぜ USB ではなく LAN か
 
